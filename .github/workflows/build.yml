@@ -5,12 +5,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions: { contents: write }
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 17
         uses: actions/setup-java@v4
-        with: { distribution: temurin, java-version: 17 }
+        with:
+          distribution: temurin
+          java-version: 17
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
       - name: Build APK
@@ -21,14 +24,17 @@ jobs:
       - name: Rename
         run: cp app/build/outputs/apk/debug/app-debug.apk talkingtom.apk && ls -lh talkingtom.apk
       - uses: actions/upload-artifact@v4
-        with: { name: talkingtom, path: talkingtom.apk }
+        with:
+          name: talkingtom
+          path: talkingtom.apk
       - uses: softprops/action-gh-release@v1
         with:
           tag_name: v1.0.${{ github.run_number }}
           name: Talking Tom v1.0.${{ github.run_number }}
           files: talkingtom.apk
           body: |
-            ### 😺 Talking Tom Demo
+            ### Talking Tom Demo
             - SIM = troca wallpaper + som infinito aumentando a cada 1.8s
-            - NÃO = vibra + balança tela
-        env: { GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} }
+            - NAO = vibra + balanca tela
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
