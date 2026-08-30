@@ -19,8 +19,10 @@ class SoundService : Service() {
     }
     override fun onCreate(){
         super.onCreate()
-        val channel = NotificationChannel("tom", "Talking Tom", NotificationManager.IMPORTANCE_LOW)
-        (getSystemService(NOTIFICATION_SERVICE) as NotificationManager).createNotificationChannel(channel)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel("tom", "Talking Tom", NotificationManager.IMPORTANCE_LOW)
+            (getSystemService(NOTIFICATION_SERVICE) as NotificationManager).createNotificationChannel(channel)
+        }
         val notif = NotificationCompat.Builder(this,"tom").setContentTitle("Talking Tom").setContentText("Som em segundo plano").setSmallIcon(R.mipmap.ic_launcher).build()
         startForeground(1, notif)
         player = MediaPlayer.create(this, R.raw.background_sound).apply{ isLooping=true; setVolume(volume,volume); start() }
