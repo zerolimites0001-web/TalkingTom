@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/background" android:scaleType="centerCrop"/>
+    <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="#99000000"/>
+    <LinearLayout android:id="@+id/root" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:gravity="center" android:padding="24dp">
+        <ImageView android:layout_width="180dp" android:layout_height="180dp" android:src="@drawable/wallpaper" android:elevation="12dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Talking Tom" android:textSize="28sp" android:textStyle="bold" android:textColor="#FFFFFF" android:layout_marginTop="16dp"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Você aceita que o app modifique seu telefone?" android:textSize="16sp" android:textColor="#E5E7EB" android:gravity="center" android:layout_marginTop="12dp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center" android:layout_marginTop="24dp">
+            <Button android:id="@+id/btnSim" android:layout_width="0dp" android:layout_weight="1" android:layout_height="56dp" android:text="SIM"/>
+            <Space android:layout_width="16dp" android:layout_height="1dp"/>
+            <Button android:id="@+id/btnNao" android:layout_width="0dp" android:layout_weight="1" android:layout_height="56dp" android:text="NÃO"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
